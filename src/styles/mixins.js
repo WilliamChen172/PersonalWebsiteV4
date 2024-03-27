@@ -102,7 +102,7 @@ const mixins = {
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--green-tint);
+      color: var(--orange);
       outline: none;
     }
     &:after {

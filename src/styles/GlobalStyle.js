@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
   /* Provide basic, default focus styles.*/
   :focus {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--orange);
     outline-offset: 3px;
   }
 
@@ -46,24 +46,24 @@ const GlobalStyle = createGlobalStyle`
     focus.
   */
   :focus-visible {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--orange);
     outline-offset: 3px;
   }
 
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
+    scrollbar-color: var(--navy) var(--white);
   }
   ::-webkit-scrollbar {
     width: 12px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--navy);
+    background: var(--white);
   }
   ::-webkit-scrollbar-thumb {
-    background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
+    background-color: var(--light-slate);
+    border: 3px 1px solid var(--white);
     border-radius: 10px;
   }
 
@@ -74,7 +74,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    background-color: var(--navy);
+    background-color: var(--background);
     color: var(--slate);
     font-family: var(--font-sans);
     font-size: var(--fz-xl);
@@ -165,7 +165,7 @@ const GlobalStyle = createGlobalStyle`
   h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--lightest-slate);
+    color: var(--text);
     line-height: 1.1;
   }
 
@@ -261,7 +261,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: var(--green);
+      color: var(--orange);
     }
 
     &.inline-link {

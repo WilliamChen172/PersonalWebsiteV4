@@ -117,10 +117,10 @@ const StyledProject = styled.li`
 
   .project-overline {
     margin: 10px 0;
-    color: var(--green);
+    color: var(--orange);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
-    font-weight: 400;
+    font-weight: 600;
   }
 
   .project-title {
@@ -342,14 +342,12 @@ const Featured = () => {
     }
 
     sr.reveal(revealTitle.current, srConfig());
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
+    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 50)));
   }, []);
 
   return (
     <section id="projects">
-      <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
-      </h2>
+      <h2 ref={revealTitle}>Some Things I’ve Built</h2>
 
       <StyledProjectsGrid>
         {featuredProjects &&

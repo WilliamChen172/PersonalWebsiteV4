@@ -30,9 +30,9 @@ const StyledSocialList = styled.ul`
     a {
       padding: 10px;
 
-      &:hover,
-      &:focus {
+      &:hover {
         transform: translateY(-3px);
+        color: var(--orange);
       }
 
       svg {

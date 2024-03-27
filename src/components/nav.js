@@ -12,12 +12,12 @@ import { IconLogo } from '@components/icons';
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
   position: fixed;
-  top: 0;
+  top: 0px;
   z-index: 11;
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(10, 25, 47, 0.85);
+  background-color: var(--background);
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -36,19 +36,19 @@ const StyledHeader = styled.header`
     props.scrollDirection === 'up' &&
       !props.scrolledToTop &&
       css`
-        height: var(--nav-scroll-height);
-        transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        height: var(--nav-height);
+        // transform: translateY(0px);
+        background-color: var(--background);
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
       `};
 
     ${props =>
     props.scrollDirection === 'down' &&
       !props.scrolledToTop &&
       css`
-        height: var(--nav-scroll-height);
-        transform: translateY(calc(var(--nav-scroll-height) * -1));
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        height: var(--nav-height);
+        transform: translateY(calc(var(--nav-height) * -1));
+        // box-shadow: 0 10px 30px -10px var(--navy-shadow);
       `};
   }
 `;
@@ -70,11 +70,8 @@ const StyledNav = styled.nav`
       width: 42px;
       height: 42px;
 
-      &:hover,
-      &:focus {
-        svg {
-          fill: var(--green-tint);
-        }
+      &:hover {
+        color: var(--orange);
       }
 
       svg {
@@ -103,18 +100,14 @@ const StyledLinks = styled.div`
     li {
       margin: 0 5px;
       position: relative;
-      counter-increment: item 1;
-      font-size: var(--fz-xs);
+      // counter-increment: item 1;
+      font-size: var(--fz-md);
 
       a {
-        padding: 10px;
+        padding: 20px;
 
-        &:before {
-          content: '0' counter(item) '.';
-          margin-right: 5px;
-          color: var(--green);
-          font-size: var(--fz-xxs);
-          text-align: right;
+        &:hover {
+          color: var(--orange);
         }
       }
     }
@@ -123,7 +116,7 @@ const StyledLinks = styled.div`
   .resume-button {
     ${({ theme }) => theme.mixins.smallButton};
     margin-left: 15px;
-    font-size: var(--fz-xs);
+    font-size: var(--fz-md);
   }
 `;
 
@@ -216,7 +209,7 @@ const Nav = ({ isHome }) => {
                     navLinks &&
                     navLinks.map(({ url, name }, i) => (
                       <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
-                        <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
+                        <li key={i} style={{ transitionDelay: `${isHome ? i * 50 : 0}ms` }}>
                           <Link to={url}>{name}</Link>
                         </li>
                       </CSSTransition>
@@ -227,7 +220,7 @@ const Nav = ({ isHome }) => {
               <TransitionGroup component={null}>
                 {isMounted && (
                   <CSSTransition classNames={fadeDownClass} timeout={timeout}>
-                    <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
+                    <div style={{ transitionDelay: `${isHome ? navLinks.length * 50 : 0}ms` }}>
                       {ResumeLink}
                     </div>
                   </CSSTransition>
